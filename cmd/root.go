@@ -27,7 +27,7 @@ var rootCmd = &cobra.Command{
 		fmt.Printf("  %s\t%s\n", commandStyle.Render("uuid  "), descStyle.Render("Generate a random UUID"))
 		fmt.Printf("  %s\t%s\n", commandStyle.Render("time  "), descStyle.Render("Convert between time formats (rfc, pg, s, ms, us, ns, pb)"))
 		fmt.Printf("  %s\t%s\n", commandStyle.Render("bcrypt"), descStyle.Render("Generate a bcrypt hash for a password"))
-		fmt.Printf("  %s\t%s\n", commandStyle.Render("color "), descStyle.Render("Convert between color formats (hex, rgb, hsl, tailwind)"))
+		fmt.Printf("  %s\t%s\n", commandStyle.Render("color "), descStyle.Render("Convert between color formats (hex, rgb, hsl)"))
 		fmt.Println()
 		fmt.Println(`Use "grist [command] --help" for more information about a command.`)
 	},

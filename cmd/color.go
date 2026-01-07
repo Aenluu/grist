@@ -58,9 +58,6 @@ var colorCmd = &cobra.Command{
 			"hsl": func() {
 				fmt.Printf("%s %s %s\n", labelStyle.Render("HSL:        "), valueStyle.Render(fmt.Sprintf("hsl(%d, %d%%, %d%%)", h, s, l)), colorBlock)
 			},
-			"tailwind": func() {
-				fmt.Printf("%s %s %s\n", labelStyle.Render("Tailwind:   "), valueStyle.Render(findClosestTailwind(r, g, b)), colorBlock)
-			},
 		}
 
 		if outFormat != "" {
@@ -235,37 +232,6 @@ func rgbToHSL(r, g, b int) (int, int, int) {
 	}
 
 	return int(math.Round(h * 360)), int(math.Round(s * 100)), int(math.Round(l * 100))
-}
-
-func findClosestTailwind(r, g, b int) string {
-	// A subset of popular Tailwind colors
-	tailwindColors := map[string][3]int{
-		"blue-500":    {59, 130, 246},
-		"red-500":     {239, 68, 68},
-		"green-500":   {34, 197, 94},
-		"yellow-500":  {234, 179, 8},
-		"purple-500":  {168, 85, 247},
-		"pink-500":    {236, 72, 153},
-		"indigo-500":  {99, 102, 241},
-		"gray-500":    {107, 114, 128},
-		"sky-500":     {14, 165, 233},
-		"emerald-500": {16, 185, 129},
-		"orange-500":  {249, 115, 22},
-		"teal-500":    {20, 184, 166},
-	}
-
-	closest := "gray-500"
-	minDistance := math.MaxFloat64
-
-	for name, color := range tailwindColors {
-		distance := math.Sqrt(math.Pow(float64(r-color[0]), 2) + math.Pow(float64(g-color[1]), 2) + math.Pow(float64(b-color[2]), 2))
-		if distance < minDistance {
-			minDistance = distance
-			closest = name
-		}
-	}
-
-	return closest
 }
 
 func init() {
