@@ -1,4 +1,4 @@
-module Grist
+module github.com/Aenluu/grist
 
 go 1.25
 
