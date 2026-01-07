@@ -1,7 +1,7 @@
 package main
 
 import (
-	"Grist/cmd"
+	"github.com/Aenluu/grist/cmd"
 )
 
 func main() {
